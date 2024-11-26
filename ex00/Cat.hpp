@@ -1,5 +1,4 @@
-#ifndef CAT
-# define CAT
+#pragma once
 
 #include "Animal.hpp"
 
@@ -9,10 +8,8 @@ class Cat : public Animal
 		Cat();
 		Cat(const Cat &other);
 		~Cat();
-		
-		Cat &operator=(const Cat &other);
+
+		// Cat &operator=(const Cat &other);
 
 		void makeSound() const;
 };
-
-#endif

@@ -1,5 +1,5 @@
 NAME		= polymorph
-SRCS		= main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS		= main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 FLAGS		= -Wall -Werror -Wextra -std=c++98
 CC			= c++
 

@@ -1,5 +1,4 @@
-#ifndef ANIMAL
-# define ANIMAL
+#pragma once
 
 #include <iostream>
 
@@ -19,5 +18,3 @@ class Animal
 		std::string getType() const;
 		virtual void makeSound() const;
 };
-
-#endif
