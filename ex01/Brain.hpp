@@ -8,11 +8,12 @@
 class Brain
 {
 	private:
-		std::string _ideas[100];
 		void _generateIdeas();
 		std::string _getRandomIdea() const;
 
 	public:
+		std::string ideas[100];
+
 		Brain();
 		Brain(const Brain &other);
 		~Brain();

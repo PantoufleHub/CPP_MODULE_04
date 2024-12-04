@@ -6,20 +6,26 @@ Brain::Brain()
 	_generateIdeas();
 }
 
-// Brain::Brain(const Brain &other)
-// {
-
-// }
+Brain::Brain(const Brain &other)
+{
+	std::cout << "Brain copy constructor called" << std::endl;
+	*this = other;
+}
 
 Brain::~Brain()
 {
 	std::cout << "Brain destroyed" << std::endl;
 }
 
-// Brain::operator=(const Brain &other)
-// {
-
-// }
+Brain &Brain::operator=(const Brain &other)
+{
+	for (int i = 0; i < 100; i++)
+	{
+		this->ideas[i] = other.ideas[i];
+		// std::cout << "Copying idea " << i + 1 << ": " << this->ideas[i] << std::endl;
+	}
+	return *this;
+}
 
 std::string Brain::_getRandomIdea() const
 {
@@ -40,7 +46,7 @@ std::string Brain::_getRandomIdea() const
 		if (x < 2)
 			idea += " ";
 	}
-	// std::cout << "New idea: " << idea << std::endl;
+	// std::cout << "New idea " << idea << std::endl;
 	return idea;
 }
 
@@ -48,6 +54,6 @@ void Brain::_generateIdeas()
 {
 	for (int nb = 0; nb < 100; nb++)
 	{
-		this->_ideas[nb] = _getRandomIdea();
+		this->ideas[nb] = _getRandomIdea();
 	}
 }
