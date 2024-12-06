@@ -21,12 +21,12 @@ AAnimal::~AAnimal ()
 	std::cout << "Default AAnimal destructor called" << std::endl;
 }
 
-AAnimal &AAnimal::operator=(const AAnimal &other)
-{
-	if (this != &other)
-		this->_type = other._type;
-	return *this;
-}
+// AAnimal &AAnimal::operator=(const AAnimal &other)
+// {
+// 	if (this != &other)
+// 		this->_type = other._type;
+// 	return *this;
+// }
 
 std::string AAnimal::getType() const
 {
