@@ -13,7 +13,7 @@ class AAnimal
 		AAnimal(const AAnimal &other);
 		virtual ~AAnimal();
 		
-		virtual AAnimal &operator=(const AAnimal &other) = 0;
+		// virtual AAnimal &operator=(const AAnimal &other) = 0;
 
 		std::string getType() const;
 
