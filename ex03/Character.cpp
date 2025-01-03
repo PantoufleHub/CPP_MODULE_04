@@ -9,7 +9,7 @@ void Character::_init(std::string name, Floor *floor, AMateria **inv)
 		if (!inv || !inv[i])
 			this->_inventory[i] = NULL;
 		else
-			this->_inventory[i] = inv[i];
+			this->_inventory[i] = inv[i]->clone();
 	}
 }
 
@@ -33,13 +33,27 @@ Character::Character(const Character &other)
 
 Character::~Character()
 {
-	// destroy inv?
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
+	}
 }
 
 Character &Character::operator=(const Character &other)
 {
 	std::cout << "Copying " << other.getName() << std::endl;
-	// laliiudsjhflaksjdhfkjhad
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		this->_inventory[i] = other.getInventory()[i]->clone();
+	}
+	this->_name = other.getName();
+	this->_floor = other.getFloor();
 	return *this;
 }
 
@@ -122,5 +136,13 @@ void Character::use(int idx, ICharacter &target)
 
 void Character::displayInventory() const 
 {
-	std::cout << "Inventory display" << std::endl;
+	std::cout << this->_name << "'s inventory:" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			std::cout << "Slot " << i << ": " << this->_inventory[i]->getType() << std::endl;
+		else
+			std::cout << "Slot " << i << ": empty" << std::endl;
+	}
+	std::cout << "-----------------" << std::endl;
 }

@@ -1,8 +1,14 @@
 #include "Floor.hpp"
 
-void Floor::_init(AMateria *onFloor)
+void Floor::_init(AMateria **onFloor)
 {
-	this->onFloor = onFloor;
+	for (int i = 0; i < 10; i++)
+	{
+		if (!onFloor)
+			this->onFloor[i] = NULL;
+		else	
+			this->onFloor[i] = onFloor[i];
+	}
 }
 
 Floor::Floor()
@@ -19,34 +25,63 @@ Floor::Floor(const Floor &other)
 
 Floor::~Floor()
 {
-	// b;a a;df;s clear
+	for (int i = 0; i < 10; i++)
+	{
+		if (this->onFloor[i])
+		{
+			delete this->onFloor[i];
+			this->onFloor[i] = NULL;
+		}
+	}
 }
 
 Floor &Floor::operator=(const Floor &other)
 {
-	// bla laalksd
-	other.display();
+	for (int i = 0; i < 10; i++)
+	{
+		if (this->onFloor[i])
+			delete this->onFloor[i];
+		this->onFloor[i] = other.getOnFloor()[i];
+	}
 	return *this;
 }
 
-AMateria *Floor::getOnFloor() const
+AMateria **Floor::getOnFloor() const
 {
-	return this->onFloor;
+	return (AMateria **)this->onFloor;
 }
 
 void Floor::remove(unsigned int materiaId)
 {
-	// sdfasdf
+	this->onFloor[materiaId] = NULL;
 	std::cout << "removing materia " << materiaId << std::endl; 
 }
 
 void Floor::add(AMateria &materia)
 {
-	// dskfj;alksdjf;dk
-	materia.getType();
+	int foundSpace = 0;
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (this->onFloor[i] == NULL)
+		{
+			this->onFloor[i] = &materia;
+			foundSpace = 1;
+			break;
+		}
+	}
+	if (!foundSpace)
+		std::cout << "The floor is already covered in materia >:(" << std::endl;
 }
 
 void Floor::display() const
 {
-	std::cout << "Floor display" << std::endl;
+	std::cout << "Floor: " << std::endl;
+	for (int i = 0; i < 10; i++)
+	{
+		if (this->onFloor[i])
+			std::cout << i << " | " << this->onFloor[i]->getType() << " |" << std::endl;
+		else
+			std::cout << i << " | empty | " << std::endl;
+	}
 }
