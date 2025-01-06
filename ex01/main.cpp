@@ -41,5 +41,11 @@ int main(void)
 		delete animals[i];
 
 	std::cout << std::endl << " -- End: " << std::endl;
+
+	// Subject test
+	// Dog basic;
+	// {
+	// 	Dog tmp = basic;
+	// }
 	return 0;
 }

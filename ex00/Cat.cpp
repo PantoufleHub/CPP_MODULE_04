@@ -16,13 +16,13 @@ Cat::~Cat()
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-// Cat &Cat::operator=(const Cat &other)
-// {
-// 	if (this != &other)
-// 		this->_type = other._type;
+Cat &Cat::operator=(const Cat &other)
+{
+	if (this != &other)
+		this->_type = other._type;
 
-// 	return *this;
-// }
+	return *this;
+}
 
 void Cat::makeSound() const
 {

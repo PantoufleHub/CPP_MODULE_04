@@ -16,13 +16,13 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-// WrongCat &WrongCat::operator=(const WrongCat &other)
-// {
-// 	if (this != &other)
-// 		this->_type = other._type;
+WrongCat &WrongCat::operator=(const WrongCat &other)
+{
+	if (this != &other)
+		this->_type = other._type;
 
-// 	return *this;
-// }
+	return *this;
+}
 
 void WrongCat::makeSound() const
 {

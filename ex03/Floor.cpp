@@ -13,7 +13,7 @@ void Floor::_init(AMateria **onFloor)
 
 Floor::Floor()
 {
-	// std::cout << "Floor default constructor" << std::endl;
+	std::cout << "Floor default constructor" << std::endl;
 	_init(NULL);
 }
 
@@ -53,7 +53,7 @@ AMateria **Floor::getOnFloor() const
 
 void Floor::remove(unsigned int materiaId)
 {
-	std::cout << "removing materia " << materiaId << std::endl; 
+	std::cout << "Removing materia " << materiaId << std::endl; 
 	this->onFloor[materiaId] = NULL;
 }
 

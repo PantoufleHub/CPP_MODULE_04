@@ -13,7 +13,7 @@ void MateriaSource::_init(AMateria **knowledge)
 
 MateriaSource::MateriaSource()
 {
-	// std::cout << "Default materia source constructor" << std::endl;
+	std::cout << "Default materia source constructor" << std::endl;
 	_init(NULL);
 }
 
