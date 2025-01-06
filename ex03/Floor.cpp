@@ -13,13 +13,13 @@ void Floor::_init(AMateria **onFloor)
 
 Floor::Floor()
 {
-	std::cout << "Floor default constructor" << std::endl;
+	// std::cout << "Floor default constructor" << std::endl;
 	_init(NULL);
 }
 
 Floor::Floor(const Floor &other)
 {
-	std::cout << "Floor copy constructor" << std::endl;
+	// std::cout << "Floor copy constructor" << std::endl;
 	_init(other.getOnFloor());
 }
 
@@ -53,8 +53,8 @@ AMateria **Floor::getOnFloor() const
 
 void Floor::remove(unsigned int materiaId)
 {
-	this->onFloor[materiaId] = NULL;
 	std::cout << "removing materia " << materiaId << std::endl; 
+	this->onFloor[materiaId] = NULL;
 }
 
 void Floor::add(AMateria &materia)
@@ -71,7 +71,10 @@ void Floor::add(AMateria &materia)
 		}
 	}
 	if (!foundSpace)
-		std::cout << "The floor is already covered in materia >:(" << std::endl;
+	{
+		std::cout << "The floor is already covered in materia, destroying materia >:(" << std::endl;
+		delete &materia;
+	}
 }
 
 void Floor::display() const

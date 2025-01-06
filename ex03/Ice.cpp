@@ -2,17 +2,17 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	std::cout << "Ice constructor" << std::endl;
+	// std::cout << "Ice constructor" << std::endl;
 }
 
 Ice::Ice(const Ice &other) : AMateria(other)
 {
-	std::cout << "Ice copy constructor" << std::endl;
+	// std::cout << "Ice copy constructor" << std::endl;
 }
 
 Ice::~Ice()
 {
-	std::cout << "Ice destroyed" << std::endl;
+	// std::cout << "Ice destroyed" << std::endl;
 }
 
 Ice &Ice::operator=(const Ice &other)

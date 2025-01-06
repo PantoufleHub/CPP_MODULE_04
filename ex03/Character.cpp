@@ -90,11 +90,14 @@ void Character::equip(AMateria *m)
 		i++;
 
 	if (i > 3)
-		std::cout << "No space in inventory." << std::endl;
+	{
+		std::cout << "No space in inventory, dropped materia on floor." << std::endl;
+		this->_floor->add(*m);
+	}
 	else
 	{
-		this->_inventory[i] = m;
 		std::cout << "Equipped " << m->getType() << " in slot " << i << std::endl;
+		this->_inventory[i] = m;
 	}
 
 }
@@ -119,7 +122,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx < 0 && idx > 3)
+	if (idx < 0 || idx > 3)
 	{
 		std::cout << "Invalid slot number" << std::endl;
 		return ;

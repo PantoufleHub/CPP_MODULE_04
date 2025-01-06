@@ -1,5 +1,5 @@
 NAME		= interfaceandrecap
-SRCS		= main.cpp Cure.cpp AMateria.cpp Character.cpp Ice.cpp Floor.cpp
+SRCS		= main.cpp Cure.cpp AMateria.cpp Character.cpp Ice.cpp Floor.cpp MateriaSource.cpp
 FLAGS		= -Wall -Werror -Wextra -std=c++98
 CC			= c++
 

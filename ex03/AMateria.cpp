@@ -2,19 +2,19 @@
 
 AMateria::AMateria()
 {
-	std::cout << "AMateria constructor" << std::endl;
+	// std::cout << "AMateria constructor" << std::endl;
 	this->_type = "dark magic";
 }
 
 AMateria::AMateria(std::string const &type)
 {
-	std::cout << "AMateria name constructor" << std::endl;
+	// std::cout << "AMateria name constructor" << std::endl;
 	this->_type = type;
 }
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destroyed" << std::endl;
+	// std::cout << "AMateria destroyed" << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria &other)
